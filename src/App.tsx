@@ -32,7 +32,7 @@ const App: React.FC = () => {
       },
       function (tabs) {
         let url = tabs[0].url;
-        
+
         if (!url) {
           setError(true);
         } else {
@@ -56,7 +56,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      {(!error && !images) && <Loading />}
+      {!error && !images && <Loading />}
       {error && <Error />}
       {images && !error && <Images images={images} />}
     </div>
