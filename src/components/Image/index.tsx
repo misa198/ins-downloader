@@ -19,7 +19,12 @@ const Image: React.FC<propTypes> = ({ image }) => {
   };
 
   return (
-    <div className="image" key={image.id}>
+    <div
+      className={classnames("image", {
+        "image--loading": !isLoaded,
+      })}
+      key={image.id}
+    >
       <img
         className={classnames({
           loading: !isLoaded,
@@ -28,11 +33,7 @@ const Image: React.FC<propTypes> = ({ image }) => {
         alt={image.id}
         onLoad={handleLoadedImage}
       />
-      {!isLoaded && (
-        <div className="loading-wrapper">
-          <Loading />
-        </div>
-      )}
+      {!isLoaded && <Loading />}
     </div>
   );
 };
