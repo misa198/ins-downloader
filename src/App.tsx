@@ -37,7 +37,6 @@ const App: React.FC = () => {
           setError(true);
         } else {
           const graphUrl = urlProcess(url);
-          console.log(graphUrl);
           callApi(graphUrl)
             .then((res) => res.json())
             .then((data) => {
