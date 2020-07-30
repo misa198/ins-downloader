@@ -1,12 +1,11 @@
 import React from "react";
 
+import { imageType } from '../../types/index';
+
 import "../../styles/Images.scss";
 
 type propTypes = {
-  images: Array<{
-    id: string;
-    uri: string;
-  }>;
+  images: Array<imageType>;
 };
 
 const Images: React.FC<propTypes> = ({ images }) => {
