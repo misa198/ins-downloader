@@ -1,5 +1,5 @@
-const callApi = async (): Promise<any> => {
-  return fetch("https://www.instagram.com/p/CDOeRrgjkQz/?__a=1", {
+const callApi = async (url: string): Promise<any> => {
+  return fetch(url, {
     headers: {
       accept:
         "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",

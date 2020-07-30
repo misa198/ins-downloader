@@ -13,5 +13,10 @@
     img {
       width: 100%;
     }
+
+    &.image--single {
+      width: 397px;
+      height: 397px;
+    }
   }
 }

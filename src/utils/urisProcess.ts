@@ -1,8 +1,6 @@
-import { imageType } from '../types/index';
+import { imageType } from "../types/index";
 
-const process = async (
-  data: any
-): Promise<Array<imageType>> => {
+const process = async (data: any): Promise<Array<imageType>> => {
   let rawData: Array<any> = [];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
