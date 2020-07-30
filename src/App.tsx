@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import Header from './components/Header/index';
 
 // Containers
-import Home from './containers/Home/index';
+// import Home from './containers/Home/index';
+import Error from './containers/Error/index';
 
 // Services
 import callApi from "./services/api";
@@ -21,7 +22,8 @@ const App: React.FC = () => {
 
   return <div className="App">
     <Header />
-    <Home />
+    <Error />
+    {/* <Home /> */}
   </div>;
 };
 
