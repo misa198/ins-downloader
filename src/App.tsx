@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 
+import Header from './components/Header';
+
 import callApi from "./services/api";
 
-import "./App.scss";
+import "./styles/App.scss";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -12,7 +14,7 @@ const App: React.FC = () => {
   }, []);
 
   return <div className="App">
-    This is app
+    <Header />
   </div>;
 };
 

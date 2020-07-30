@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Billdabong";
+  src: url("../assets/fonts/Billdabong.ttf");
+}
+
+.header {
+  padding: 0.5rem;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+
+  a {
+    text-decoration: none;
+    color: #000000;
+
+    .logo {
+      font: {
+        family: "Billdabong";
+        size: 2rem;
+      }
+      user-select: none;
+    }
+  }
+}
