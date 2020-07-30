@@ -2,20 +2,35 @@
   "manifest_version": 2,
 
   "name": "Instagram Images Downloader",
-  "description": "Download images from instagram",
+  "description": "Download Images From Instagram",
   "version": "0.0.1",
 
-  "browser_action": {
-    "default_popup": "index.html",
-    "default_title": "Instagram Images Downloader"
-  },
   "icons": {
     "16": "logo16.png",
     "48": "logo64.png",
     "128": "logo128.png"
   },
+
+  "background": {
+    "scripts": [
+      "background/js/background.js"
+    ],
+    "css": [
+      "background/css/style.css"
+    ]
+  },
+
+  "browser_action": {
+    "default_icon": "logo64-disabled.png",
+    "default_popup": "index.html",
+    "default_title": "Instagram Images Downloader"
+  },
+
   "content_security_policy": "script-src 'self' 'sha256-34tALHaICP/VEfP2YOOUy9sH3YGVgBxmg/Yp3aWY9jY='; object-src 'self'",
+
   "permissions": [
-    "https://www.instagram.com/"
+    "<all_urls>",
+    "storage",
+    "tabs"
   ]
 }
