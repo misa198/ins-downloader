@@ -7,6 +7,7 @@ import Header from "./components/Header/index";
 // Containers
 import Error from "./containers/Error/index";
 import Images from "./containers/Images/index";
+import Loading from "./containers/Loading/index";
 
 // Services
 import callApi from "./services/api";
@@ -55,6 +56,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
+      {/* <Loading /> */}
       {error && <Error />}
       {images && !error && <Images images={images} />}
     </div>
