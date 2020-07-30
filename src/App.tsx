@@ -56,7 +56,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      {/* <Loading /> */}
+      {(!error && !images) && <Loading />}
       {error && <Error />}
       {images && !error && <Images images={images} />}
     </div>
