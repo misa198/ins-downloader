@@ -1,5 +1,6 @@
 {
   "name": "instagram-images-downloader",
+  "author": "misa198",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
