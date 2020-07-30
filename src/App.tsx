@@ -1,9 +1,15 @@
 import React, { useEffect } from "react";
 
-import Header from './components/Header';
+// Components
+import Header from './components/Header/index';
 
+// Containers
+import Home from './containers/Home/index';
+
+// Services
 import callApi from "./services/api";
 
+// Styles
 import "./styles/App.scss";
 
 const App: React.FC = () => {
@@ -15,6 +21,7 @@ const App: React.FC = () => {
 
   return <div className="App">
     <Header />
+    <Home />
   </div>;
 };
 
