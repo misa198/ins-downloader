@@ -2,21 +2,4 @@
   display: flex;
   flex-wrap: wrap;
   padding: 1.5px;
-
-  .image {
-    width: 198.5px;
-    height: 198.5px;
-    padding: 1.5px;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-
-    img {
-      width: 100%;
-    }
-
-    &.image--single {
-      width: 397px;
-      height: 397px;
-    }
-  }
 }

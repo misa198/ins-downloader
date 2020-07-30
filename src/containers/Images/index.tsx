@@ -1,5 +1,6 @@
 import React from "react";
-import classnames from "classnames";
+
+import Image from "../../components/Image/index";
 
 import { imageType } from "../../types/index";
 
@@ -13,11 +14,7 @@ const Images: React.FC<propTypes> = ({ images }) => {
   return (
     <div className="images">
       {images.map((image) => (
-        <div className={classnames("image", {
-          "image--single": images.length === 1
-        })} key={image.id}>
-          <img src={image.uri} alt={image.id} />
-        </div>
+        <Image image={image} key={image.id} />
       ))}
     </div>
   );
