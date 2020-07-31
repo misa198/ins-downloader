@@ -10,12 +10,11 @@ import Media from "./containers/Media/index";
 import Loading from "./containers/Loading/index";
 
 // Services
-import callApi from "./services/api";
-
-import urisProcess from "./utils/urisProcess";
-import urlProcess from "./utils/urlProcess";
+import { getPost, getStory } from "./services/api";
 
 import { mediumTypes } from "./types/index";
+
+import { urlPostRegex, urlStoryRegex } from "./configs/regex";
 
 // Styles
 import "./styles/App.scss";
@@ -35,18 +34,14 @@ const App: React.FC = () => {
 
         if (!url) {
           setError(true);
-        } else {
-          const graphUrl = urlProcess(url);
-          callApi(graphUrl)
-            .then((res) => res.json())
-            .then((data) => {
-              urisProcess(data)
-                .then((result) => setMedia(result))
-                .catch(() => setError(true));
-            })
-            .catch(() => {
-              setError(true);
-            });
+        } else if (url.match(urlPostRegex)) {
+          getPost(url)
+            .then((data) => setMedia(data))
+            .catch(() => setError(true));
+        } else if (url.match(urlStoryRegex)) {
+          getStory(url)
+            .then((data) => setMedia(data))
+            .catch(() => setError(true));
         }
       }
     );
