@@ -1,7 +1,7 @@
 {
   "name": "instagram-images-downloader",
   "author": "misa198",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
