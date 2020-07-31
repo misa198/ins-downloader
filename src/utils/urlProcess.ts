@@ -1,9 +1,7 @@
-const insPostRegex = new RegExp(
-  "(?:(?:http|https)://)?(?:www.)?(?:instagram.com|instagr.am)/p/([A-Za-z0-9-_]+)"
-);
+import { urlPostRegex } from '../configs/regex';
 
 export const processPostUrl = (url: string): string => {
-  const match = url.match(insPostRegex);
+  const match = url.match(urlPostRegex);
   if (match) {
     return `${match[0]}?__a=1`;
   } else return "";
