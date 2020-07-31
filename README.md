@@ -1,8 +1,8 @@
-# Instagram Images Downloader
+# Instagram Downloader
 
 ![logo](https://raw.githubusercontent.com/misa198/instagram-images-downloader/master/public/logo128.png)
 
-Extension download all images from a post with the highest quality.
+Extension download all images and video from a post with the highest quality.
 Made for chromium browser.
 
 ## Installation
