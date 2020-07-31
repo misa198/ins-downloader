@@ -24,6 +24,12 @@ export const getHashQuery = async (): Promise<any> => {
     });
 };
 
+export const getUserId = async (username: string): Promise<any> => {
+  return (fetch(`${baseUrl}/${username}?__a=1`))
+  .then(res => res.json())
+  .then(data => data.graphql.user.id);
+};
+
 export const getPost = async (url: string): Promise<any> => {
   const graphqlUrl = processPostUrl(url);
 
@@ -33,5 +39,5 @@ export const getPost = async (url: string): Promise<any> => {
 };
 
 export const getStory = async (url: string): Promise<any> => {
-  getHashQuery().then((data) => console.log(data));
+  
 };
