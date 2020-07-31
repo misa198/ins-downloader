@@ -1,7 +1,8 @@
-import urisProcess from "../utils/urisProcess";
-import { processPostUrl } from "../utils/urlProcess";
+import { processPostUri, processStoriesUri } from "../utils/urisProcess";
+import { processPostUrl, getStoryId, getUsername } from "../utils/urlProcess";
 
 import { baseUrl, requestConfigs } from "../configs/connect";
+import { convertCompilerOptionsFromJson } from "typescript";
 
 export const getHashQuery = async (): Promise<any> => {
   return fetch(baseUrl, requestConfigs)
@@ -25,9 +26,9 @@ export const getHashQuery = async (): Promise<any> => {
 };
 
 export const getUserId = async (username: string): Promise<any> => {
-  return (fetch(`${baseUrl}/${username}?__a=1`))
-  .then(res => res.json())
-  .then(data => data.graphql.user.id);
+  return fetch(`${baseUrl}/${username}?__a=1`)
+    .then((res) => res.json())
+    .then((data) => data.graphql.user.id);
 };
 
 export const getPost = async (url: string): Promise<any> => {
@@ -35,9 +36,23 @@ export const getPost = async (url: string): Promise<any> => {
 
   return fetch(graphqlUrl, requestConfigs)
     .then((res) => res.json())
-    .then((data) => urisProcess(data).then((result) => result));
+    .then((data) => processPostUri(data).then((result) => result));
 };
 
 export const getStory = async (url: string): Promise<any> => {
-  
+  const username = getUsername(url);
+
+  getUserId(username).then((userId) => {
+    console.log(username);
+    console.log(userId);
+    getHashQuery().then((hashQuery) => {
+      console.log(hashQuery);
+      return fetch(
+        `${baseUrl}/graphql/query/?query_hash=${hashQuery}&variables=%7B%22reel_ids%22%3A%5B%22${userId}%22%5D%2C%22tag_names%22%3A%5B%5D%2C%22location_ids%22%3A%5B%5D%2C%22highlight_reel_ids%22%3A%5B%5D%2C%22precomposed_overlay%22%3Afalse%2C%22show_story_viewer_list%22%3Atrue%2C%22story_viewer_fetch_count%22%3A50%2C%22story_viewer_cursor%22%3A%22%22%2C%22stories_video_dash_manifest%22%3Afalse%7D`,
+        requestConfigs
+      )
+        .then((res) => res.json())
+        .then((data) => processStoriesUri(data).then((result) => console.log(result)));
+    });
+  });
 };
