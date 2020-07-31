@@ -6,7 +6,7 @@ import Header from "./components/Header/index";
 
 // Containers
 import Error from "./containers/Error/index";
-import Images from "./containers/Images/index";
+import Media from "./containers/Media/index";
 import Loading from "./containers/Loading/index";
 
 // Services
@@ -15,13 +15,13 @@ import callApi from "./services/api";
 import urisProcess from "./utils/urisProcess";
 import urlProcess from "./utils/urlProcess";
 
-import { imageType } from "./types/index";
+import { mediumTypes } from "./types/index";
 
 // Styles
 import "./styles/App.scss";
 
 const App: React.FC = () => {
-  const [images, setImages] = useState<imageType[]>();
+  const [media, setMedia] = useState<mediumTypes[]>();
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const App: React.FC = () => {
             .then((res) => res.json())
             .then((data) => {
               urisProcess(data)
-                .then((result) => setImages(result))
+                .then((result) => setMedia(result))
                 .catch(() => setError(true));
             })
             .catch(() => {
@@ -55,9 +55,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      {!error && !images && <Loading />}
+      {!error && !media && <Loading />}
       {error && <Error />}
-      {images && !error && <Images images={images} />}
+      {media && !error && <Media media={media} />}
     </div>
   );
 };

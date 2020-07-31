@@ -1,4 +1,4 @@
-.image {
+.medium {
   width: 397px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -21,6 +21,10 @@
       opacity: 0;
       height: 0;
     }
+  }
+
+  video {
+    width: 100%;
   }
 
   .loading-wrapper {
