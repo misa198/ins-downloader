@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Instagram Images Downloader",
-  "description": "Download Images From Instagram",
-  "version": "0.0.1",
+  "name": "Instagram Downloader",
+  "description": "Download Images And Video From Instagram",
+  "version": "0.0.2",
 
   "icons": {
     "16": "logo16.png",
