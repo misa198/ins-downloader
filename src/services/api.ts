@@ -43,8 +43,7 @@ export const getStory = async (url: string): Promise<any> => {
   const username = getUsername(url);
 
   getUserId(username).then((userId) => {
-    console.log(username);
-    console.log(userId);
+    if (!userId) throw new Error("Invalid username");
     getHashQuery().then((hashQuery) => {
       console.log(hashQuery);
       return fetch(
@@ -52,7 +51,9 @@ export const getStory = async (url: string): Promise<any> => {
         requestConfigs
       )
         .then((res) => res.json())
-        .then((data) => processStoriesUri(data).then((result) => console.log(result)));
+        .then((data) =>
+          processStoriesUri(data).then((result) => console.log(result))
+        );
     });
   });
 };
