@@ -26,7 +26,7 @@
     "default_title": "Instagram Images Downloader"
   },
 
-  "content_security_policy": "script-src 'self' 'sha256-34tALHaICP/VEfP2YOOUy9sH3YGVgBxmg/Yp3aWY9jY='; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'sha256-mEgr58JwybOwXu0XeZjAVRPnU4TiP3wysHF+9Hc3eHU='; object-src 'self'",
 
   "permissions": [
     "<all_urls>",
