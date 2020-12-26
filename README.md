@@ -1,12 +1,16 @@
 # Instagram Downloader
 
-![logo](https://raw.githubusercontent.com/misa198/instagram-images-downloader/master/public/logo128.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/misa198/instagram-images-downloader/master/public/logo128.png" align="center" />
+  <p align="center" style="font-size: 20px; padding: 0 20%;">
+    Download all images and video from a post or story with the highest quality.
+  </p>
+</p>
 
-Extension download all images and video from a post or story with the highest quality.
-Made for chromium browser.
-
-* ✅ Post
-* ✅ Story
+## Made for chromium browser.
+You can download:
+* Post ✅ 
+* Story ✅ 
 
 ## Installation
 
