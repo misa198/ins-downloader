@@ -52,7 +52,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     tab.url.match(insPostRegex) === null &&
     tab.url.match(storyRegex) === null
   ) {
-    chrome.browserAction.setPopup({ tabId: tabId, popup: "" });
+    chrome.browserAction.setPopup({
+      tabId: tabId,
+      popup: "background/template/index.html",
+    });
     chrome.browserAction.setIcon({
       path: "logo64-disabled.png",
       tabId: tabId,
