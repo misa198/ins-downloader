@@ -1,10 +1,11 @@
 /* global chrome */
 const insPostRegex = new RegExp(
-  "(?:(?:http|https)://)?(?:www.)?(?:instagram.com|instagr.am)/p/([A-Za-z0-9-_]+)"
+  /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/p\/([A-Za-z0-9-_]+)/
 );
 const storyRegex = new RegExp(
-  "(?:(?:http|https)://)?(?:www.)?(?:instagram.com|instagr.am)/stories/([A-Za-z0-9-_]+)"
+  /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/stories\/([A-Za-z0-9-_]+)/
 );
+const homeRegex = new RegExp(/^https:\/\/www.instagram.com(\/?)$/);
 
 chrome.tabs.onActivated.addListener(function (info) {
   chrome.tabs.get(info.tabId, function (change) {
@@ -20,7 +21,8 @@ chrome.tabs.onActivated.addListener(function (info) {
       });
     } else if (
       change.url.match(insPostRegex) === null &&
-      change.url.match(storyRegex) === null
+      change.url.match(storyRegex) === null &&
+      change.url.match(homeRegex) === null
     ) {
       // Url not match
       chrome.browserAction.setPopup({
@@ -50,7 +52,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     return;
   } else if (
     tab.url.match(insPostRegex) === null &&
-    tab.url.match(storyRegex) === null
+    tab.url.match(storyRegex) === null &&
+    change.url.match(homeRegex) === null
   ) {
     chrome.browserAction.setPopup({
       tabId: tabId,
