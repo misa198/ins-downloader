@@ -11,7 +11,7 @@ import Loading from "./views/Loading/index";
 
 import { getPost, getStory } from "./services/api";
 
-import { urlPostRegex, urlStoryRegex } from "./configs/regex";
+import { urlPostRegex, urlStoryRegex } from "./constants/regex";
 
 export interface MediumTypes {
   uri: string;

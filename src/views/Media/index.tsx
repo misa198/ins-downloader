@@ -4,10 +4,10 @@ import MediaStyled from "./styled";
 
 import Medium from "../../components/Medium/index";
 
-import { mediumTypes } from "../../types/index";
+import { MediumTypes } from "../../App";
 
 type propTypes = {
-  media: Array<mediumTypes>;
+  media: MediumTypes[];
 };
 
 const Images: React.FC<propTypes> = ({ media }) => {

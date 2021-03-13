@@ -5,10 +5,10 @@ import MediumStyled from "./styled";
 
 import Loading from "../Loading/index";
 
-import { mediumTypes } from "../../types/index";
+import { MediumTypes } from "../../App";
 
 type propTypes = {
-  medium: mediumTypes;
+  medium: MediumTypes;
 };
 
 const Medium: React.FC<propTypes> = ({ medium }) => {

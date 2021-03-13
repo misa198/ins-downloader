@@ -1,9 +1,9 @@
 import { processPostUri, processStoriesUri } from "../utils/urisProcess";
 import { processPostUrl, getUsername } from "../utils/urlProcess";
 
-import { baseUrl, requestConfigs } from "../configs/connect";
+import { baseUrl, requestConfigs } from "../constants/connect";
 
-export const getHashQuery = async (): Promise<any> => {
+export const getHashQuery = async (): Promise<string> => {
   return fetch(baseUrl, requestConfigs)
     .then((data: Response) => data.text())
     .then((body: string) => {
@@ -24,7 +24,7 @@ export const getHashQuery = async (): Promise<any> => {
     });
 };
 
-export const getUserId = async (username: string): Promise<any> => {
+export const getUserId = async (username: string): Promise<string> => {
   return fetch(`${baseUrl}/${username}?__a=1`)
     .then((res) => res.json())
     .then((data) => data.graphql.user.id);
