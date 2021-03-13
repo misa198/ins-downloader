@@ -5,9 +5,9 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.3",
     "styled-components": "^5.2.1"
   },
   "scripts": {
@@ -19,7 +19,7 @@
   "eslintConfig": {
     "extends": "react-app",
     "globals": {
-      "chrome": "on"
+      "chrome": "readonly"
     }
   },
   "browserslist": {
@@ -35,16 +35,16 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.8",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/chrome": "^0.0.122",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/chrome": "^0.0.133",
     "@types/classnames": "^2.2.10",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "typescript": "~3.7.2"
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.34",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/styled-components": "^5.1.8",
+    "typescript": "~4.2.3"
   }
 }
