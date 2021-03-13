@@ -1,15 +1,15 @@
 import React from "react";
 
-import "../../styles/Loading.scss";
+import LoadingStyled from "./styled";
 
 const Loading: React.FC = () => {
   return (
-    <div className="loading">
+    <LoadingStyled className="loading">
       <div></div>
       <div></div>
       <div></div>
       <div></div>
-    </div>
+    </LoadingStyled>
   );
 };
 

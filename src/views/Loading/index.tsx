@@ -1,15 +1,15 @@
 import React from "react";
 
-import Loading from '../../components/Loading/index';
+import LoadingViewStyled from "./styled";
 
-import "../../styles/LoadingContainer.scss";
+import Loading from "../../components/Loading/index";
 
-const LoadingContainer: React.FC = () => {
+const LoadingView: React.FC = () => {
   return (
-    <div className="loading-container">
+    <LoadingViewStyled className="loading-view">
       <Loading />
-    </div>
+    </LoadingViewStyled>
   );
 };
 
-export default LoadingContainer;
+export default LoadingView;

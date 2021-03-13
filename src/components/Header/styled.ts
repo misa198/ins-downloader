@@ -1,9 +1,6 @@
-@font-face {
-  font-family: "Billdabong";
-  src: url("../assets/fonts/Billdabong.ttf");
-}
+import styled from "styled-components";
 
-.header {
+export default styled.div`
   padding: 0.5rem;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -13,18 +10,16 @@
   background: #ffffff;
   z-index: 5;
 
-  a {
+  .header__url {
     text-decoration: none;
     color: #000000;
 
-    .logo {
+    &__logo {
       width: 100%;
       text-align: center;
-      font: {
-        family: "Billdabong";
-        size: 2rem;
-      }
+      font-family: "Billdabong";
+      font-size: 2rem;
       user-select: none;
     }
   }
-}
+`;
