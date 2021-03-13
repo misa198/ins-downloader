@@ -10,6 +10,9 @@ export default styled.div`
   width: 100%;
   background: #ffffff;
   z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .header__url {
     text-decoration: none;
