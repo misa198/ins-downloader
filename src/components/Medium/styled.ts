@@ -1,4 +1,6 @@
-.medium {
+import styled from "styled-components";
+
+export default styled.div`
   width: 397px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -7,7 +9,7 @@
   align-items: center;
   flex-direction: column;
 
-  &--loading {
+  .medium--loading {
     min-height: 397px;
   }
 
@@ -31,4 +33,4 @@
     width: 100%;
     height: 100%;
   }
-}
+`;

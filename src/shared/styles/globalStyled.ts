@@ -1,3 +1,13 @@
+import { createGlobalStyle } from "styled-components";
+
+import BilldabongFont from "../../assets/fonts/Billdabong.ttf";
+
+export default createGlobalStyle`
+@font-face {
+  font-family: "Billdabong";
+  src: url(${BilldabongFont});
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -25,3 +35,4 @@ code {
 ::-webkit-scrollbar {
   display: none;
 }
+`;

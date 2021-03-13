@@ -1,4 +1,4 @@
-import { urlPostRegex } from '../configs/regex';
+import { urlPostRegex } from '../constants/regex';
 
 export const processPostUrl = (url: string): string => {
   const match = url.match(urlPostRegex);

@@ -1,26 +1,27 @@
 /// <reference types="chrome"/>
 import React, { useEffect, useState } from "react";
 
-// Components
+import AppStyled from "./styled";
+
 import Header from "./components/Header/index";
 
-// Containers
-import Error from "./containers/Error/index";
-import Media from "./containers/Media/index";
-import Loading from "./containers/Loading/index";
+import Error from "./views/Error/index";
+import Media from "./views/Media/index";
+import Loading from "./views/Loading/index";
 
-// Services
 import { getPost, getStory } from "./services/api";
 
-import { mediumTypes } from "./types/index";
+import { urlPostRegex, urlStoryRegex } from "./constants/regex";
 
-import { urlPostRegex, urlStoryRegex } from "./configs/regex";
-
-// Styles
-import "./styles/App.scss";
+export interface MediumTypes {
+  uri: string;
+  id: string;
+  is_video: boolean;
+  video_url: string | undefined;
+}
 
 const App: React.FC = () => {
-  const [media, setMedia] = useState<mediumTypes[]>();
+  const [media, setMedia] = useState<MediumTypes[]>();
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -48,12 +49,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App">
+    <AppStyled>
       <Header />
       {!error && !media && <Loading />}
       {error && <Error />}
       {media && !error && <Media media={media} />}
-    </div>
+    </AppStyled>
   );
 };
 

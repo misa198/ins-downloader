@@ -1,8 +1,8 @@
-import { mediumTypes } from "../types/index";
+import { MediumTypes } from "../App";
 
 export const processPostUri = async (
   data: any
-): Promise<Array<mediumTypes>> => {
+): Promise<Array<MediumTypes>> => {
   let rawData: Array<any> = [];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -10,7 +10,7 @@ export const processPostUri = async (
     ? (rawData = data.graphql.shortcode_media.edge_sidecar_to_children.edges)
     : [];
 
-  const uris: Array<mediumTypes> = [];
+  const uris: Array<MediumTypes> = [];
   if (rawData.length !== 0) {
     rawData.forEach((ele) => {
       uris.push({
@@ -38,7 +38,7 @@ export const processPostUri = async (
 
 export const processStoriesUri = async (
   data: any
-): Promise<Array<mediumTypes>> => {
+): Promise<Array<MediumTypes>> => {
   let rawData: Array<any> = [];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -46,7 +46,7 @@ export const processStoriesUri = async (
     ? (rawData = data.data.reels_media[0].items)
     : [];
 
-  const uris: Array<mediumTypes> = [];
+  const uris: Array<MediumTypes> = [];
   if (rawData.length !== 0) {
     rawData.forEach((ele) => {
       ele.is_video

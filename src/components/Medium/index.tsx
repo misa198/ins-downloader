@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 
+import MediumStyled from "./styled";
+
 import Loading from "../Loading/index";
 
-import { mediumTypes } from "../../types/index";
-
-import "../../styles/Medium.scss";
+import { MediumTypes } from "../../App";
 
 type propTypes = {
-  medium: mediumTypes;
+  medium: MediumTypes;
 };
 
 const Medium: React.FC<propTypes> = ({ medium }) => {
@@ -23,7 +23,7 @@ const Medium: React.FC<propTypes> = ({ medium }) => {
   }, [medium.is_video]);
 
   return (
-    <div
+    <MediumStyled
       className={classnames("medium", {
         "medium--loading": !isLoaded,
       })}
@@ -39,13 +39,9 @@ const Medium: React.FC<propTypes> = ({ medium }) => {
           onLoad={handleLoadedImage}
         />
       )}
-      {
-        medium.is_video && (
-          <video controls src={medium.video_url}/>
-        )
-      }
+      {medium.is_video && <video controls src={medium.video_url} />}
       {!isLoaded && <Loading />}
-    </div>
+    </MediumStyled>
   );
 };
 

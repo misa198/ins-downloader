@@ -1,4 +1,6 @@
-.loading {
+import styled from "styled-components";
+
+export default styled.div`
   display: inline-block;
   position: relative;
   width: 80px;
@@ -33,34 +35,34 @@
       animation: lds-ellipsis3 0.6s infinite;
     }
   }
-}
 
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
   }
 
-  100% {
-    transform: scale(1);
-  }
-}
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
 
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-}
-
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
+    100% {
+      transform: scale(0);
+    }
   }
 
-  100% {
-    transform: translate(24px, 0);
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(24px, 0);
+    }
   }
-}
+`;

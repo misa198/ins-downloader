@@ -1,22 +1,22 @@
 import React from "react";
 
+import MediaStyled from "./styled";
+
 import Medium from "../../components/Medium/index";
 
-import { mediumTypes } from "../../types/index";
-
-import "../../styles/Media.scss";
+import { MediumTypes } from "../../App";
 
 type propTypes = {
-  media: Array<mediumTypes>;
+  media: MediumTypes[];
 };
 
 const Images: React.FC<propTypes> = ({ media }) => {
   return (
-    <div className="media">
+    <MediaStyled className="media">
       {media.map((medium) => (
         <Medium medium={medium} key={medium.id} />
       ))}
-    </div>
+    </MediaStyled>
   );
 };
 
