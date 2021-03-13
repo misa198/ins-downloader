@@ -9,7 +9,7 @@ export default styled.div`
   align-items: center;
   flex-direction: column;
 
-  .medium--loading {
+  &.medium--loading {
     min-height: 397px;
   }
 

@@ -19,6 +19,10 @@ body {
   height: 500px;
   width: 400px;
   overflow: hidden;
+
+  #root {
+    height: 100%;
+  }
 }
 
 code {
