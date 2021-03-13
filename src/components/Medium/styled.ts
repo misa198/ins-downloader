@@ -8,6 +8,7 @@ export default styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: fit-content;
 
   &.medium--loading {
     min-height: 397px;
