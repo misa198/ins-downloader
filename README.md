@@ -8,12 +8,19 @@
 </p>
 
 ## Made for chromium browser.
-You can download:
-* Post ✅ 
-* Story ✅ 
+### Download images
+<img src="./docs/images.png" />
+<br/>
+
+### Download videos
+<img src="./docs/videos.png" />
+<br/>
+
+### Download stories
+<img src="./docs/stories.png" />
+<br/>
 
 ## Installation
-
 Download from [here](https://github.com/misa198/instagram-images-downloader/releases) to install.
 
 Follow the instructions [here](https://www.quora.com/How-do-I-install-a-chrome-extension-from-a-zip-file).
