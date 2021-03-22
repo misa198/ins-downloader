@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.div`
+export const HeaderWrapper = styled.div`
   height: 4rem;
   padding: 0.5rem;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -13,17 +13,18 @@ export default styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .header__url {
-    text-decoration: none;
-    color: #000000;
-
-    &__logo {
-      width: 100%;
-      text-align: center;
-      font-family: "Billdabong";
-      font-size: 2rem;
-      user-select: none;
-    }
   }
+`;
+
+export const HeaderUrl = styled.a`
+  text-decoration: none;
+  color: #000000;
+`;
+
+export const HeaderLogo = styled.div`
+  width: 100%;
+  text-align: center;
+  font-family: "Billdabong";
+  font-size: 2rem;
+  user-select: none;
 `;

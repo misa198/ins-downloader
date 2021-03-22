@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.div`
+export const MediaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 1.5px;

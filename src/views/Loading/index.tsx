@@ -1,14 +1,14 @@
 import React from "react";
 
-import LoadingViewStyled from "./styled";
+import { LoadingViewWrapper } from "./styled";
 
 import Loading from "../../components/Loading/index";
 
 const LoadingView: React.FC = () => {
   return (
-    <LoadingViewStyled className="loading-view">
+    <LoadingViewWrapper>
       <Loading />
-    </LoadingViewStyled>
+    </LoadingViewWrapper>
   );
 };
 

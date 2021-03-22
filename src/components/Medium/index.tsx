@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import classnames from "classnames";
 
-import MediumStyled from "./styled";
+import { MediumWrapper, MediumImg, MediumVideo } from "./styled";
 
 import Loading from "../Loading/index";
 
@@ -23,25 +22,18 @@ const Medium: React.FC<propTypes> = ({ medium }) => {
   }, [medium.is_video]);
 
   return (
-    <MediumStyled
-      className={classnames("medium", {
-        "medium--loading": !isLoaded,
-      })}
-      key={medium.id}
-    >
+    <MediumWrapper isLoaded={isLoaded} key={medium.id}>
       {!medium.is_video && (
-        <img
-          className={classnames({
-            loading: !isLoaded,
-          })}
+        <MediumImg
+          isLoaded={isLoaded}
           src={medium.uri}
           alt={medium.id}
           onLoad={handleLoadedImage}
         />
       )}
-      {medium.is_video && <video controls src={medium.video_url} />}
+      {medium.is_video && <MediumVideo controls src={medium.video_url} />}
       {!isLoaded && <Loading />}
-    </MediumStyled>
+    </MediumWrapper>
   );
 };
 

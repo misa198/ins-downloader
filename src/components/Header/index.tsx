@@ -1,18 +1,19 @@
 import React from "react";
 
-import HeaderStyled from "./styled";
+import { HeaderWrapper, HeaderUrl, HeaderLogo } from "./styled";
 
 const Header: React.FC = () => {
   return (
-    <HeaderStyled className="header">
-      <a
-        className="header__url"
+    <HeaderWrapper className="header">
+      <HeaderUrl
         href="https://github.com/misa198/instagram-images-downloader"
         target="blank"
       >
-        <div className="header__url__logo">Instagram Downloader</div>
-      </a>
-    </HeaderStyled>
+        <HeaderLogo className="header__url__logo">
+          Instagram Downloader
+        </HeaderLogo>
+      </HeaderUrl>
+    </HeaderWrapper>
   );
 };
 

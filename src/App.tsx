@@ -1,7 +1,7 @@
 /// <reference types="chrome"/>
 import React, { useEffect, useState } from "react";
 
-import AppStyled from "./styled";
+import { AppWrapper } from "./styled";
 
 import Header from "./components/Header/index";
 
@@ -49,12 +49,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <AppStyled>
+    <AppWrapper>
       <Header />
       {!error && !media && <Loading />}
       {error && <Error />}
       {media && !error && <Media media={media} />}
-    </AppStyled>
+    </AppWrapper>
   );
 };
 

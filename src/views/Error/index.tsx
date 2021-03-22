@@ -1,15 +1,13 @@
 import React from "react";
 
-import ErrorStyled from "./styled";
-
-import { ReactComponent as ErrorImage } from "../../assets/images/error.svg";
+import { ErrorWrapper, ErrorImage, ErrorText } from "./styled";
 
 const Error: React.FC = () => {
   return (
-    <ErrorStyled className="error">
-      <ErrorImage className="error__image" />
-      <div className="error_text">Error!</div>
-    </ErrorStyled>
+    <ErrorWrapper>
+      <ErrorImage />
+      <ErrorText>Error!</ErrorText>
+    </ErrorWrapper>
   );
 };
 
