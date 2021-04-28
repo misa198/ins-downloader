@@ -29,9 +29,12 @@ const Medium: React.FC<propTypes> = ({ medium }) => {
           src={medium.uri}
           alt={medium.id}
           onLoad={handleLoadedImage}
+          crossOrigin="anonymous"
         />
       )}
-      {medium.is_video && <MediumVideo controls src={medium.video_url} />}
+      {medium.is_video && (
+        <MediumVideo controls src={medium.video_url} crossOrigin="anonymous" />
+      )}
       {!isLoaded && <Loading />}
     </MediumWrapper>
   );
