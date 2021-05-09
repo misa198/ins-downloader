@@ -1,13 +1,15 @@
 import { processPostUri, processStoriesUri } from "../utils/urisProcess";
 import { processPostUrl, getUsername } from "../utils/urlProcess";
 
-import { baseUrl, requestConfigs } from "../constants/connect";
+import { baseUrl, imageApiUrl, requestConfigs } from "../constants/connect";
 
-export const getHashQuery = async (): Promise<string> => {
+export const getAppId = async (): Promise<string> => {
   return fetch(baseUrl, requestConfigs)
     .then((data: Response) => data.text())
     .then((body: string) => {
-      const path = body.match(/\/(static\/bundles\/.+\/Consumer\.js\/.+\.js)/);
+      const path = body.match(
+        /\/(static\/bundles\/.+\/ConsumerLibCommons\.js\/.+\.js)/
+      );
       if (path) return path[1];
       else return "";
     })
@@ -16,10 +18,11 @@ export const getHashQuery = async (): Promise<string> => {
       return fetch(`${baseUrl}/${path}`, requestConfigs)
         .then((res) => res.text())
         .then((data) => {
-          const hashQuery = data.match(/50,[a-zA-Z]="([a-zA-Z0-9]{32})",/);
-
-          if (!hashQuery) return "";
-          else return hashQuery[1];
+          const appId = data.match(
+            /,e.instagramWebDesktopFBAppId='([0-9]{15})',/
+          );
+          if (!appId) return "";
+          else return appId[1];
         });
     });
 };
@@ -43,11 +46,26 @@ export const getStory = async (url: string): Promise<any> => {
 
   return getUserId(username).then((userId) => {
     if (!userId) throw new Error("Invalid username");
-    return getHashQuery().then((hashQuery) => {
-      return fetch(
-        `${baseUrl}/graphql/query/?query_hash=${hashQuery}&variables=%7B%22reel_ids%22%3A%5B%22${userId}%22%5D%2C%22tag_names%22%3A%5B%5D%2C%22location_ids%22%3A%5B%5D%2C%22highlight_reel_ids%22%3A%5B%5D%2C%22precomposed_overlay%22%3Afalse%2C%22show_story_viewer_list%22%3Atrue%2C%22story_viewer_fetch_count%22%3A50%2C%22story_viewer_cursor%22%3A%22%22%2C%22stories_video_dash_manifest%22%3Afalse%7D`,
-        requestConfigs
-      )
+    return getAppId().then((appId) => {
+      return fetch(`${imageApiUrl}/v1/feed/reels_media/?reel_ids=${userId}`, {
+        headers: {
+          accept: "*/*",
+          "accept-language": "vi,en;q=0.9",
+          "sec-ch-ua":
+            '" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
+          "sec-ch-ua-mobile": "?0",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "x-ig-app-id": appId,
+        },
+        referrer: "https://www.instagram.com/",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: null,
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+      })
         .then((res) => res.json())
         .then((data) => processStoriesUri(data).then((result) => result));
     });

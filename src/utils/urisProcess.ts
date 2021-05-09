@@ -40,28 +40,28 @@ export const processStoriesUri = async (
   data: any
 ): Promise<Array<MediumTypes>> => {
   let rawData: Array<any> = [];
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  data.data.reels_media.length !== 0
-    ? (rawData = data.data.reels_media[0].items)
-    : [];
-
   const uris: Array<MediumTypes> = [];
+
+  rawData = data.reels_media[0].items;
+
   if (rawData.length !== 0) {
     rawData.forEach((ele) => {
-      ele.is_video
-        ? uris.push({
-            uri: ele.display_resources[ele.display_resources.length - 1].src,
-            id: ele.id,
-            is_video: ele.is_video,
-            video_url: ele.video_resources[ele.video_resources.length - 1].src,
-          })
-        : uris.push({
-            uri: ele.display_resources[ele.display_resources.length - 1].src,
-            id: ele.id,
-            is_video: ele.is_video,
-            video_url: undefined,
-          });
+      if (ele.video_versions) {
+        const video = ele.video_versions[0];
+        uris.push({
+          uri: ele.image_versions2.candidates[0].url,
+          id: ele.id,
+          is_video: true,
+          video_url: video.url,
+        });
+      } else {
+        uris.push({
+          uri: ele.image_versions2.candidates[0].url,
+          id: ele.id,
+          is_video: false,
+          video_url: undefined,
+        });
+      }
     });
   }
 
