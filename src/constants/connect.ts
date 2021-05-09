@@ -1,4 +1,5 @@
 export const baseUrl = "https://www.instagram.com";
+export const imageApiUrl = "https://i.instagram.com/api";
 
 export const requestConfigs: RequestInit = {
   headers: {
