@@ -3,7 +3,7 @@
 
   "name": "Instagram Downloader",
   "description": "Download Images And Video From Instagram",
-  "version": "0.2.0",
+  "version": "0.2.2",
 
   "icons": {
     "16": "logo16.png",
