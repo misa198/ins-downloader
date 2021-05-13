@@ -1,6 +1,7 @@
 {
   "name": "instagram-downloader",
   "author": "misa198",
+
   "version": "0.2.2",
   "private": true,
   "dependencies": {
