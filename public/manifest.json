@@ -3,7 +3,7 @@
 
   "name": "Instagram Downloader",
   "description": "Download Images And Video From Instagram",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "icons": {
     "16": "logo16.png",
     "48": "logo64.png",
@@ -11,12 +11,8 @@
   },
 
   "background": {
-    "scripts": [
-      "background/js/background.js"
-    ],
-    "css": [
-      "background/css/style.css"
-    ]
+    "scripts": ["background/js/background.js"],
+    "css": ["background/css/style.css"]
   },
 
   "browser_action": {
@@ -28,8 +24,8 @@
   "content_security_policy": "script-src 'self' 'sha256-mEgr58JwybOwXu0XeZjAVRPnU4TiP3wysHF+9Hc3eHU='; object-src 'self'",
 
   "permissions": [
-    "<all_urls>",
-    "storage",
+    "https://*.instagram.com/*",
+    "https://*.cdninstagram.com/*",
     "tabs"
   ]
 }
