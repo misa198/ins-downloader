@@ -1,8 +1,7 @@
 {
   "name": "instagram-downloader",
   "author": "misa198",
-
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "dependencies": {
     "hosted-git-info": "^4.0.2",

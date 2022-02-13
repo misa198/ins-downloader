@@ -3,33 +3,40 @@ import { MediumTypes } from "../App";
 export const processPostUri = async (
   data: any
 ): Promise<Array<MediumTypes>> => {
-  let rawData: Array<any> = [];
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  data.graphql.shortcode_media.edge_sidecar_to_children
-    ? (rawData = data.graphql.shortcode_media.edge_sidecar_to_children.edges)
-    : [];
-
   const uris: Array<MediumTypes> = [];
-  if (rawData.length !== 0) {
-    rawData.forEach((ele) => {
-      uris.push({
-        uri:
-          ele.node.display_resources[ele.node.display_resources.length - 1].src,
-        id: ele.node.id,
-        is_video: ele.node.is_video,
-        video_url: ele.node.video_url,
-      });
+
+  if (data.items[0].carousel_media) {
+    const rawData = data.items[0].carousel_media;
+    rawData.forEach((ele: any) => {
+      if (ele.video_versions) {
+        uris.push({
+          uri: "",
+          id: ele.id,
+          is_video: true,
+          video_url: ele.video_versions[0].url,
+        });
+      } else {
+        uris.push({
+          uri: ele.image_versions2.candidates[0].url,
+          id: ele.id,
+          is_video: false,
+          video_url: "",
+        });
+      }
+    });
+  } else if (data.items[0].video_versions) {
+    uris.push({
+      uri: "",
+      id: data.items[0].id,
+      is_video: true,
+      video_url: data.items[0].video_versions[0].url,
     });
   } else {
     uris.push({
-      uri:
-        data.graphql.shortcode_media.display_resources[
-          data.graphql.shortcode_media.display_resources.length - 1
-        ].src,
-      id: data.graphql.shortcode_media.id,
-      is_video: data.graphql.shortcode_media.is_video,
-      video_url: data.graphql.shortcode_media.video_url,
+      uri: data.items[0].image_versions2.candidates[0].url,
+      id: data.items[0].id,
+      is_video: false,
+      video_url: "",
     });
   }
 
